@@ -13,4 +13,12 @@
 
   <artifactId>springuni-chat-client</artifactId>
 
+  <dependencies>
+    <dependency>
+      <groupId>com.springuni</groupId>
+      <artifactId>springuni-chat-model</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+
 </project>
