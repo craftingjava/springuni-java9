@@ -1,3 +1,3 @@
 module com.springui.chat.client {
-  requires com.springui.chat.model;
+  requires com.springuni.chat.model;
 }
