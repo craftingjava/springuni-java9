@@ -15,6 +15,12 @@
     <module>springuni-chat-client</module>
   </modules>
 
+  <properties>
+    <maven.compiler.release>9</maven.compiler.release>
+    <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
+    <maven-toolchains-plugin.version>1.1</maven-toolchains-plugin.version>
+  </properties>
+
   <packaging>pom</packaging>
 
   <build>
@@ -22,16 +28,34 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.6.1</version>
+        <version>${maven-compiler-plugin.version}</version>
         <configuration>
-          <source>9</source>
-          <target>9</target>
           <showWarnings>true</showWarnings>
           <showDeprecation>true</showDeprecation>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-toolchains-plugin</artifactId>
+        <version>${maven-toolchains-plugin.version}</version>
+        <configuration>
+          <toolchains>
+            <jdk>
+              <version>9</version>
+              <vendor>oracle</vendor>
+            </jdk>
+          </toolchains>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>toolchain</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
 
 </project>
-
