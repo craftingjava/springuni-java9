@@ -29,6 +29,22 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${maven-compiler-plugin.version}</version>
+        <!--
+          Fix breaking change introduced by JDK-8178012: Finish removal of -Xmodule
+          Reference:  http://bugs.java.com/bugdatabase/view_bug.do?bug_id=8178012
+        -->
+        <executions>
+          <execution>
+            <id>default-testCompile</id>
+            <phase>test-compile</phase>
+            <goals>
+              <goal>testCompile</goal>
+            </goals>
+            <configuration>
+              <skip>true</skip>
+            </configuration>
+          </execution>
+        </executions>
         <configuration>
           <showWarnings>true</showWarnings>
           <showDeprecation>true</showDeprecation>
